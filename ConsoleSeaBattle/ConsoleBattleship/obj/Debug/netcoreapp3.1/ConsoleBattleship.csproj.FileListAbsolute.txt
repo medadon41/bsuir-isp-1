@@ -1,0 +1,13 @@
+D:\ISP\ConsoleBattleship\ConsoleBattleship\bin\Debug\netcoreapp3.1\ConsoleBattleship.exe
+D:\ISP\ConsoleBattleship\ConsoleBattleship\bin\Debug\netcoreapp3.1\ConsoleBattleship.deps.json
+D:\ISP\ConsoleBattleship\ConsoleBattleship\bin\Debug\netcoreapp3.1\ConsoleBattleship.runtimeconfig.json
+D:\ISP\ConsoleBattleship\ConsoleBattleship\bin\Debug\netcoreapp3.1\ConsoleBattleship.runtimeconfig.dev.json
+D:\ISP\ConsoleBattleship\ConsoleBattleship\bin\Debug\netcoreapp3.1\ConsoleBattleship.dll
+D:\ISP\ConsoleBattleship\ConsoleBattleship\bin\Debug\netcoreapp3.1\ConsoleBattleship.pdb
+D:\ISP\ConsoleBattleship\ConsoleBattleship\obj\Debug\netcoreapp3.1\ConsoleBattleship.csprojAssemblyReference.cache
+D:\ISP\ConsoleBattleship\ConsoleBattleship\obj\Debug\netcoreapp3.1\ConsoleBattleship.AssemblyInfoInputs.cache
+D:\ISP\ConsoleBattleship\ConsoleBattleship\obj\Debug\netcoreapp3.1\ConsoleBattleship.AssemblyInfo.cs
+D:\ISP\ConsoleBattleship\ConsoleBattleship\obj\Debug\netcoreapp3.1\ConsoleBattleship.csproj.CoreCompileInputs.cache
+D:\ISP\ConsoleBattleship\ConsoleBattleship\obj\Debug\netcoreapp3.1\ConsoleBattleship.dll
+D:\ISP\ConsoleBattleship\ConsoleBattleship\obj\Debug\netcoreapp3.1\ConsoleBattleship.pdb
+D:\ISP\ConsoleBattleship\ConsoleBattleship\obj\Debug\netcoreapp3.1\ConsoleBattleship.genruntimeconfig.cache
