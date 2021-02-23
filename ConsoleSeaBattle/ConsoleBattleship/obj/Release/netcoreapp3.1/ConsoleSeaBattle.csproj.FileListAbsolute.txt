@@ -1,0 +1,13 @@
+D:\ISP\ConsoleSeaBattle\ConsoleBattleship\bin\Release\netcoreapp3.1\ConsoleSeaBattle.exe
+D:\ISP\ConsoleSeaBattle\ConsoleBattleship\bin\Release\netcoreapp3.1\ConsoleSeaBattle.deps.json
+D:\ISP\ConsoleSeaBattle\ConsoleBattleship\bin\Release\netcoreapp3.1\ConsoleSeaBattle.runtimeconfig.json
+D:\ISP\ConsoleSeaBattle\ConsoleBattleship\bin\Release\netcoreapp3.1\ConsoleSeaBattle.runtimeconfig.dev.json
+D:\ISP\ConsoleSeaBattle\ConsoleBattleship\bin\Release\netcoreapp3.1\ConsoleSeaBattle.dll
+D:\ISP\ConsoleSeaBattle\ConsoleBattleship\bin\Release\netcoreapp3.1\ConsoleSeaBattle.pdb
+D:\ISP\ConsoleSeaBattle\ConsoleBattleship\obj\Release\netcoreapp3.1\ConsoleSeaBattle.csprojAssemblyReference.cache
+D:\ISP\ConsoleSeaBattle\ConsoleBattleship\obj\Release\netcoreapp3.1\ConsoleSeaBattle.AssemblyInfoInputs.cache
+D:\ISP\ConsoleSeaBattle\ConsoleBattleship\obj\Release\netcoreapp3.1\ConsoleSeaBattle.AssemblyInfo.cs
+D:\ISP\ConsoleSeaBattle\ConsoleBattleship\obj\Release\netcoreapp3.1\ConsoleSeaBattle.csproj.CoreCompileInputs.cache
+D:\ISP\ConsoleSeaBattle\ConsoleBattleship\obj\Release\netcoreapp3.1\ConsoleSeaBattle.dll
+D:\ISP\ConsoleSeaBattle\ConsoleBattleship\obj\Release\netcoreapp3.1\ConsoleSeaBattle.pdb
+D:\ISP\ConsoleSeaBattle\ConsoleBattleship\obj\Release\netcoreapp3.1\ConsoleSeaBattle.genruntimeconfig.cache

@@ -189,7 +189,7 @@ namespace ConsoleBattleship
             {
                 Console.Clear();
                 this.ShowBoard(this.mainBoard);
-                Console.Write($"{this.name}, choose where to put a {type_name} ({type}-square) (1 left): ");
+                Console.Write($"{this.name}, choose where to put a {type_name} ({type}-square) ({k} left): ");
                 for (int i = 0; i < type; i++)
                 {
                 PartRetry:
@@ -237,6 +237,28 @@ namespace ConsoleBattleship
                 }
             }
         }
+        public bool IdentShot(ref string shot, ref Player enemyPlayer)
+        {
+            this.Convert(ref shot);
+            int shotX = 0;
+            int shotY = 0;
+            this.CountCords(shot, ref shotX, ref shotY);
+
+            Console.WriteLine($"Y: {shotY} X: {shotX}");
+
+            if(int.TryParse(enemyPlayer.mainBoard[shotY, shotX].Substring(0, 1), out int _test))
+            {
+                this.enemyBoard[shotY, shotX] = enemyPlayer.mainBoard[shotY, shotX];
+                enemyPlayer.mainBoard[shotY, shotX] = "X"; 
+                enemyPlayer.activeSquares -= 1;
+                return true;
+            } else
+            {
+                this.enemyBoard[shotY, shotX] = "*";
+                enemyPlayer.mainBoard[shotY, shotX] = "*";
+                return false;
+            }
+        }
 
     }
     class Program
@@ -259,7 +281,7 @@ namespace ConsoleBattleship
                 default: goto InputRetry1;
             };
 
-            //First player's turn
+            //First player's ship placement
 
 
             Player1.CreateShip(1, "Torpedo Boat");
@@ -272,8 +294,8 @@ namespace ConsoleBattleship
 
             Console.Clear();
 
-            //Second player's turn
-        
+            //Second player's ship placement
+
         InputRetry2:
             Console.Write(Player2.name + ", are you ready? Make sure your opponent can't see your ships ('+' if ready) ");
             switch (Console.ReadLine())
@@ -289,7 +311,72 @@ namespace ConsoleBattleship
             Player2.CreateShip(3, "Destroyer");
 
             Player2.CreateShip(4, "Battleship");
-            
+
+            Console.Clear();
+
+            int whosTurn = 0;
+            Player[] Players = new Player[2] { Player1, Player2 };
+            string shot;
+            int isWin = 1;
+            while (isWin != 0)
+            { 
+            InputRetry3:
+                Console.WriteLine(Players[whosTurn].name + ", are you ready? Make sure your opponent can't see your ships ('+' if ready) ");
+                switch (Console.ReadLine())
+                {
+                    case "+": Console.Clear(); break;
+                    default: goto InputRetry3;
+                };
+            AddShot:
+                Console.Clear();
+                Console.WriteLine("Your sea:");
+                Players[whosTurn].ShowBoard(Players[whosTurn].mainBoard);
+                Console.WriteLine("Enemy sea:");
+                Players[whosTurn].ShowBoard(Players[whosTurn].enemyBoard);
+            ShotRetry:
+                Console.Write($"{Players[whosTurn].name}, your turn! Choose where you gonna shoot: ");
+                shot = Console.ReadLine();
+                if (!(Players[whosTurn].Convert(ref shot)))
+                {
+                    Console.WriteLine("Invalid coordinates! Please use the correct format (ex.: F5).");
+                    goto ShotRetry;
+                }
+                if (Players[whosTurn].IdentShot(ref shot, ref Players[1 - whosTurn]))
+                {
+                    Console.Clear();
+                    if (Player1.activeSquares == 0 || Player2.activeSquares == 0)
+                    {
+                        isWin = 0;
+                    }
+                    Console.WriteLine("You've hitted a ship! Additional turn.");
+                    goto AddShot;
+                }
+                else
+                {
+                    whosTurn = 1 - whosTurn;
+                    Console.Clear();
+                }
+
+            }
+            Console.Clear();
+            Console.WriteLine($"============ {Player1.name} sea ============");
+            Player1.ShowBoard(Player1.mainBoard);
+            Console.WriteLine($"============ {Player2.name} sea ============");
+            Player2.ShowBoard(Player2.mainBoard);
+            Console.WriteLine("=============================================");
+            if (Player1.activeSquares == 0)
+            {
+                Console.WriteLine($"{Player1.name}'s ships are destroyed! {Player2.name} WINS THE BATTLE!!!");
+            } 
+            else if (Player2.activeSquares == 0)
+            {
+                Console.WriteLine($"{Player2.name}'s ships are destroyed! {Player1.name} WINS THE BATTLE!!!");
+            }
+            Console.WriteLine("=============================================");
+            Console.WriteLine("\nConsole Sea Battle v. 1.0 (23.02.21), created by medadon41 :^)");
+
+            Console.ReadKey();
+
         }
 
     }
