@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\ISP\\ConsoleSeaBattle\\ConsoleBattleship\\ConsoleSeaBattle.csproj": {}
+    "D:\\GIT ISP\\bsuir-isp-1\\ConsoleSeaBattle\\ConsoleBattleship\\ConsoleSeaBattle.csproj": {}
   },
   "projects": {
-    "D:\\ISP\\ConsoleSeaBattle\\ConsoleBattleship\\ConsoleSeaBattle.csproj": {
+    "D:\\GIT ISP\\bsuir-isp-1\\ConsoleSeaBattle\\ConsoleBattleship\\ConsoleSeaBattle.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\ISP\\ConsoleSeaBattle\\ConsoleBattleship\\ConsoleSeaBattle.csproj",
+        "projectUniqueName": "D:\\GIT ISP\\bsuir-isp-1\\ConsoleSeaBattle\\ConsoleBattleship\\ConsoleSeaBattle.csproj",
         "projectName": "ConsoleSeaBattle",
-        "projectPath": "D:\\ISP\\ConsoleSeaBattle\\ConsoleBattleship\\ConsoleSeaBattle.csproj",
+        "projectPath": "D:\\GIT ISP\\bsuir-isp-1\\ConsoleSeaBattle\\ConsoleBattleship\\ConsoleSeaBattle.csproj",
         "packagesPath": "C:\\Users\\Данила\\.nuget\\packages\\",
-        "outputPath": "D:\\ISP\\ConsoleSeaBattle\\ConsoleBattleship\\obj\\",
+        "outputPath": "D:\\GIT ISP\\bsuir-isp-1\\ConsoleSeaBattle\\ConsoleBattleship\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Данила\\AppData\\Roaming\\NuGet\\NuGet.Config",

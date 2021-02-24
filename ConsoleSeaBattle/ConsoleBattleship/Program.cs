@@ -265,6 +265,9 @@ namespace ConsoleBattleship
     {
         static void Main()
         {
+            Console.WriteLine("Welcome to the Console Sea Battle v1.0.1 \nPress any key to start");
+            Console.ReadKey();
+            Console.Clear();
             var Player1 = new Player();
             var Player2 = new Player();
 
@@ -373,7 +376,7 @@ namespace ConsoleBattleship
                 Console.WriteLine($"{Player2.name}'s ships are destroyed! {Player1.name} WINS THE BATTLE!!!");
             }
             Console.WriteLine("=============================================");
-            Console.WriteLine("\nConsole Sea Battle v. 1.0 (23.02.21), created by medadon41 :^)");
+            Console.WriteLine("\nConsole Sea Battle v. 1.0.1 (24.02.21), created by medadon41 :^)");
 
             Console.ReadKey();
 

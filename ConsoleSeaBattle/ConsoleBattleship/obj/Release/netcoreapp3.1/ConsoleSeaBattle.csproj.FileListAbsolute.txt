@@ -11,3 +11,15 @@ D:\ISP\ConsoleSeaBattle\ConsoleBattleship\obj\Release\netcoreapp3.1\ConsoleSeaBa
 D:\ISP\ConsoleSeaBattle\ConsoleBattleship\obj\Release\netcoreapp3.1\ConsoleSeaBattle.dll
 D:\ISP\ConsoleSeaBattle\ConsoleBattleship\obj\Release\netcoreapp3.1\ConsoleSeaBattle.pdb
 D:\ISP\ConsoleSeaBattle\ConsoleBattleship\obj\Release\netcoreapp3.1\ConsoleSeaBattle.genruntimeconfig.cache
+D:\GIT ISP\bsuir-isp-1\ConsoleSeaBattle\ConsoleBattleship\bin\Release\netcoreapp3.1\ConsoleSeaBattle.exe
+D:\GIT ISP\bsuir-isp-1\ConsoleSeaBattle\ConsoleBattleship\bin\Release\netcoreapp3.1\ConsoleSeaBattle.deps.json
+D:\GIT ISP\bsuir-isp-1\ConsoleSeaBattle\ConsoleBattleship\bin\Release\netcoreapp3.1\ConsoleSeaBattle.runtimeconfig.json
+D:\GIT ISP\bsuir-isp-1\ConsoleSeaBattle\ConsoleBattleship\bin\Release\netcoreapp3.1\ConsoleSeaBattle.runtimeconfig.dev.json
+D:\GIT ISP\bsuir-isp-1\ConsoleSeaBattle\ConsoleBattleship\bin\Release\netcoreapp3.1\ConsoleSeaBattle.dll
+D:\GIT ISP\bsuir-isp-1\ConsoleSeaBattle\ConsoleBattleship\bin\Release\netcoreapp3.1\ConsoleSeaBattle.pdb
+D:\GIT ISP\bsuir-isp-1\ConsoleSeaBattle\ConsoleBattleship\obj\Release\netcoreapp3.1\ConsoleSeaBattle.AssemblyInfoInputs.cache
+D:\GIT ISP\bsuir-isp-1\ConsoleSeaBattle\ConsoleBattleship\obj\Release\netcoreapp3.1\ConsoleSeaBattle.AssemblyInfo.cs
+D:\GIT ISP\bsuir-isp-1\ConsoleSeaBattle\ConsoleBattleship\obj\Release\netcoreapp3.1\ConsoleSeaBattle.csproj.CoreCompileInputs.cache
+D:\GIT ISP\bsuir-isp-1\ConsoleSeaBattle\ConsoleBattleship\obj\Release\netcoreapp3.1\ConsoleSeaBattle.dll
+D:\GIT ISP\bsuir-isp-1\ConsoleSeaBattle\ConsoleBattleship\obj\Release\netcoreapp3.1\ConsoleSeaBattle.pdb
+D:\GIT ISP\bsuir-isp-1\ConsoleSeaBattle\ConsoleBattleship\obj\Release\netcoreapp3.1\ConsoleSeaBattle.genruntimeconfig.cache
