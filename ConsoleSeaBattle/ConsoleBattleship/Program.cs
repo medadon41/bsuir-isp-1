@@ -37,8 +37,8 @@ namespace ConsoleBattleship
         public int activeSquares = 20;
         public bool Convert(ref string turn)
         {
-            if (turn == "" || turn.Length == 1) return false;
-            switch (turn[0])
+            if (turn == "" || turn.Length == 1 || int.TryParse(turn.Substring(1, 1), out int _temp) == false) return false;
+            switch (char.ToUpper(turn[0]))
             {
                 case 'A':
                     turn = turn.Remove(0, 1);
@@ -192,46 +192,50 @@ namespace ConsoleBattleship
                 Console.Write($"{this.name}, choose where to put a {type_name} ({type}-square) ({k} left): ");
                 for (int i = 0; i < type; i++)
                 {
-                PartRetry:
-                    turn = Console.ReadLine();
-
-                    if (!(this.Convert(ref turn)))
+                    int j = 1;
+                    while (j == 1)
                     {
-                        Console.WriteLine("Invalid coordinates! Please use the correct format (ex.: F5).");
-                        goto PartRetry;
-                    }
-
-                    int turnX = 0;
-                    int turnY = 0;
-
-                    this.CountCords(turn, ref turnX, ref turnY);
-
-
-                    if (this.mainBoard[turnY - 1, turnX] == type.ToString() ||
-                        this.mainBoard[turnY, turnX - 1] == type.ToString() ||
-                        this.mainBoard[turnY + 1, turnX] == type.ToString() ||
-                        this.mainBoard[turnY, turnX + 1] == type.ToString() ||
-                        i == 0)
-                    {
-                        if (i > 0) { isConnecting = true; } else if (type == 1) { isConnecting = false; }
-                        switch (this.CheckAround(this.mainBoard, turnX, turnY, 3, isConnecting))
+                        turn = Console.ReadLine();
+                        while (!(this.Convert(ref turn)))
                         {
-                            case 1:
-                                {
-                                    Console.WriteLine("Invalid coordinates! Ships must be 1 square away from each other.");
-                                    goto PartRetry;
-                                }
-                            default:
-                                {
-                                    this.mainBoard[turnY, turnX] = type.ToString();
-                                    break;
-                                }
+                            Console.WriteLine("Invalid coordinates! Please use the correct format (ex.: 'A10' / 'a10').");
+                            turn = Console.ReadLine();
                         }
-                    }
-                    else
-                    {
-                        Console.WriteLine("Invalid coordinates! Destroyer's squares should be connected with each other");
-                        goto PartRetry;
+
+                        int turnX = 0;
+                        int turnY = 0;
+
+                        this.CountCords(turn, ref turnX, ref turnY);
+
+
+                        if (this.mainBoard[turnY - 1, turnX] == type.ToString() ||
+                            this.mainBoard[turnY, turnX - 1] == type.ToString() ||
+                            this.mainBoard[turnY + 1, turnX] == type.ToString() ||
+                            this.mainBoard[turnY, turnX + 1] == type.ToString() ||
+                            i == 0)
+                        {
+                            if (i > 0) { isConnecting = true; } else if (type == 1) { isConnecting = false; }
+                            switch (this.CheckAround(this.mainBoard, turnX, turnY, type, isConnecting))
+                            {
+                                case 1:
+                                    {
+                                        Console.WriteLine("Invalid coordinates! Ships must be 1 square away from each other.");
+                                        j = 1;
+                                        break;
+                                    }
+                                default:
+                                    {
+                                        this.mainBoard[turnY, turnX] = type.ToString();
+                                        j = 0;
+                                        break;
+                                    }
+                            }
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Invalid coordinates! {type_name}'s squares should be connected with each other");
+                            j = 1;
+                        }
                     }
 
                 }
@@ -265,7 +269,7 @@ namespace ConsoleBattleship
     {
         static void Main()
         {
-            Console.WriteLine("Welcome to the Console Sea Battle v1.0.1 \nPress any key to start");
+            Console.WriteLine("Welcome to the Console Sea Battle \nPress any key to start");
             Console.ReadKey();
             Console.Clear();
             var Player1 = new Player();
@@ -276,13 +280,10 @@ namespace ConsoleBattleship
             Console.Write("The second player, enter your nickname: ");
             Player2.name = Console.ReadLine();
 
-        InputRetry1:
             Console.Write(Player1.name + ", are you ready? Make sure your opponent can't see your ships ('+' if ready) ");
-            switch (Console.ReadLine())
-            {
-                case "+": Console.Clear(); break;
-                default: goto InputRetry1;
-            };
+            while (Console.ReadLine() != "+") { 
+                Console.Write(Player1.name + ", are you ready? Make sure your opponent can't see your ships ('+' if ready) ");
+            }
 
             //First player's ship placement
 
@@ -299,13 +300,11 @@ namespace ConsoleBattleship
 
             //Second player's ship placement
 
-        InputRetry2:
             Console.Write(Player2.name + ", are you ready? Make sure your opponent can't see your ships ('+' if ready) ");
-            switch (Console.ReadLine())
+            while (Console.ReadLine() != "+")
             {
-                case "+": Console.Clear(); break;
-                default: goto InputRetry2;
-            };
+                Console.Write(Player2.name + ", are you ready? Make sure your opponent can't see your ships ('+' if ready) ");
+            }
 
             Player2.CreateShip(1, "Torpedo Boat");
 
@@ -322,42 +321,44 @@ namespace ConsoleBattleship
             string shot;
             int isWin = 1;
             while (isWin != 0)
-            { 
-            InputRetry3:
-                Console.WriteLine(Players[whosTurn].name + ", are you ready? Make sure your opponent can't see your ships ('+' if ready) ");
-                switch (Console.ReadLine())
+            {
+                Console.Write(Players[whosTurn].name + ", are you ready? Make sure your opponent can't see your ships ('+' if ready) ");
+                while (Console.ReadLine() != "+")
                 {
-                    case "+": Console.Clear(); break;
-                    default: goto InputRetry3;
-                };
-            AddShot:
-                Console.Clear();
-                Console.WriteLine("Your sea:");
-                Players[whosTurn].ShowBoard(Players[whosTurn].mainBoard);
-                Console.WriteLine("Enemy sea:");
-                Players[whosTurn].ShowBoard(Players[whosTurn].enemyBoard);
-            ShotRetry:
-                Console.Write($"{Players[whosTurn].name}, your turn! Choose where you gonna shoot: ");
-                shot = Console.ReadLine();
-                if (!(Players[whosTurn].Convert(ref shot)))
-                {
-                    Console.WriteLine("Invalid coordinates! Please use the correct format (ex.: F5).");
-                    goto ShotRetry;
+                    Console.Write(Players[whosTurn].name + ", are you ready? Make sure your opponent can't see your ships ('+' if ready) ");
                 }
-                if (Players[whosTurn].IdentShot(ref shot, ref Players[1 - whosTurn]))
+                int s = 1;
+                while (s == 1)
                 {
-                    Console.Clear();
                     if (Player1.activeSquares == 0 || Player2.activeSquares == 0)
                     {
                         isWin = 0;
+                        s = 1;
                     }
-                    Console.WriteLine("You've hitted a ship! Additional turn.");
-                    goto AddShot;
-                }
-                else
-                {
-                    whosTurn = 1 - whosTurn;
                     Console.Clear();
+                    Console.WriteLine("Your sea:");
+                    Players[whosTurn].ShowBoard(Players[whosTurn].mainBoard);
+                    Console.WriteLine("Enemy sea:");
+                    Players[whosTurn].ShowBoard(Players[whosTurn].enemyBoard);
+                    Console.Write($"{Players[whosTurn].name}, your turn! Choose where you gonna shoot: ");
+                    shot = Console.ReadLine();
+                    while (!(Players[whosTurn].Convert(ref shot)))
+                    {
+                        Console.WriteLine("Invalid coordinates! Please use the correct format (ex.: 'A10' / 'a10').");
+                        shot = Console.ReadLine();
+                    }
+                    if (Players[whosTurn].IdentShot(ref shot, ref Players[1 - whosTurn]))
+                    {
+                        Console.Clear();
+                        Console.WriteLine("You've hitted a ship! Additional turn.");
+                        s = 1;
+                    }
+                    else
+                    {
+                        whosTurn = 1 - whosTurn;
+                        s = 0;
+                        Console.Clear();
+                    }
                 }
 
             }
@@ -376,7 +377,7 @@ namespace ConsoleBattleship
                 Console.WriteLine($"{Player2.name}'s ships are destroyed! {Player1.name} WINS THE BATTLE!!!");
             }
             Console.WriteLine("=============================================");
-            Console.WriteLine("\nConsole Sea Battle v. 1.0.1 (24.02.21), created by medadon41 :^)");
+            Console.WriteLine("\nConsole Sea Battle v. 1.1 (27.02.21), created by medadon41 :^)");
 
             Console.ReadKey();
 
